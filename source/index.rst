@@ -4,7 +4,8 @@
 
 .. toctree::
    :maxdepth: 2
-   :numbered: 2
+   :numbered:
+   :titlesonly:
 
 
    install_env/index.rst

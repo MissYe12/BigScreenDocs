@@ -3,7 +3,7 @@
 .. toctree::
     :maxdepth: 1
 
-    Nodejs.rst
-    Express.rst
-    Mysql的使用.rst
-    搭建Node+Epress+Mysql框架.rst
+    Nodejs
+    Express
+    Mysql的使用
+    搭建Node+Epress+Mysql框架

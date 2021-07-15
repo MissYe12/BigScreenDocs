@@ -3,33 +3,36 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-DOCTYPE 声明
---------------------------------------------------------------------------
+
+DOCTYPE声明
+------------------
 HTML 文件必须加上 DOCTYPE 声明，并统一使用 HTML5 的文档声明
 
 示例：
 
-<!DOCTYPE html>
+.. code-block:: sh
+   :linenos:
+
+   <!DOCTYPE html>
+
 
 
 注释
---------------------------------------------------------------------------
+------------
 采用单行注释
 
 示例：
 
-<!-- good -->
+.. code-block:: sh
+   :linenos:
 
-<!-- Comment Text -->
+   <!-- good -->
+   <!-- Comment Text -->
+   <div>...</div>
 
-<div>...</div>
-
-<!-- bad -->
-
-<div>...</div><!-- Comment Text -->
- 
-<div><!-- Comment Text -->
-
-</div>
+   <!-- bad -->
+   <div>...</div><!-- Comment Text -->
+   <div><!-- Comment Text -->
+   </div>
 
 

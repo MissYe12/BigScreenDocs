@@ -3,4 +3,4 @@
 .. toctree::
     :maxdepth: 1
 
-    项目的部署.rst
+    项目的部署

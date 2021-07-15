@@ -9,31 +9,48 @@
 
 示例：
 
-.selector {
-    margin: 0;
-    padding: 0;
-}
+.. code-block:: sh
+   :linenos:
+
+   .selector {
+       margin: 0;
+       padding: 0;
+   }
+
+
 
 选择器` 与 `{` 之间必须包含空格
 ----------------------------------------------------------------------------------------
 示例：
 
-.selector {
-}
+.. code-block:: sh
+   :linenos:
+
+   .selector {
+   }
+
 
 
 `属性名` 与之后的 `:` 之间不允许包含空格， `:` 与 `属性值` 之间必须包含空格
 ----------------------------------------------------------------------------------------
 示例：
 
-margin: 0;
+.. code-block:: sh
+   :linenos:
+
+   margin: 0;
+
 
 
 `列表型属性值` 书写在单行时，`,` 后必须跟一个空格
 ----------------------------------------------------------------------------------------
 示例：
 
-font-family: Arial, sans-serif;
+.. code-block:: sh
+   :linenos:
+
+   font-family: Arial, sans-serif;
+
 
 
 行长度
@@ -47,70 +64,73 @@ font-family: Arial, sans-serif;
 ----------------------------------------------------------------------------------------
 示例：
 
-/* good */
-.post,
+.. code-block:: sh
+   :linenos:
 
-.page,
+   /* good */
+   .post,
+   .page,
+   .comment {
+       line-height: 1.5;
+   }
 
-.comment {
+   /* bad */
+   .post, .page, .comment {
+       line-height: 1.5;
+   }
 
-    line-height: 1.5;
-	
-}
-
-/* bad */
-
-.post, .page, .comment {
-
-    line-height: 1.5;
-	
-}
 
 
 `>`、`+`、`~` 选择器的两边各保留一个空格
 ----------------------------------------------------------------------------------------
 示例：
 
-/* good */
+.. code-block:: sh
+   :linenos:
 
-main > nav {
+   /* good */
+   main > nav {
+       padding: 10px;
+   }
 
-    padding: 10px;
-	
-}
+   label + input {
+       margin-left: 5px;
+   }
 
-label + input {
+   input:checked ~ button {
+       background-color: #69C;
+   }
 
-    margin-left: 5px;
-	
-}
+   /* bad */
+   main>nav {
+       padding: 10px;
+   }
 
-input:checked ~ button {
+   label+input {
+       margin-left: 5px;
+   }
 
-    background-color: #69C;
-	
-}
-
-/* bad */
-
-main>nav {
-
-    padding: 10px;
-	
-}
-
-label+input {
-
-    margin-left: 5px;
-	
-}
-
-input:checked~button {
-
-    background-color: #69C;
-	
-}
+   input:checked~button {
+       background-color: #69C;
+   }
 
 
 属性选择器中的值必须用双引号包围
 ----------------------------------------------------------------------------------------
+解释：
+     不允许使用单引号，不允许不使用引号
+
+示例：
+
+.. code-block:: sh
+   :linenos:
+
+   /* good */
+   article[character="juliet"] {
+       voice-family: "Vivien Leigh", victoria, female;
+   }
+     
+   /* bad */
+   article[character='juliet'] {
+       voice-family: "Vivien Leigh", victoria, female;
+   }

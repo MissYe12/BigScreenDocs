@@ -1,8 +1,8 @@
-环境下载
+环境准备
 ========================================================
 .. toctree::
     :maxdepth: 1
 
-    vscode的下载.rst
-    Navicat-for-Mysql软件的下载.rst
-    MYSQL的下载.rst
+    vscode的下载
+    Navicat-for-Mysql软件的下载
+    MYSQL的下载

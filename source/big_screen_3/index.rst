@@ -3,5 +3,5 @@
 .. toctree::
     :maxdepth: 1
 
-    开启后台服务.rst
-    利用ajax从数据库获取数据.rst
+    开启后台服务
+    利用ajax从数据库获取数据

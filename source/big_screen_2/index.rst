@@ -3,4 +3,4 @@
 .. toctree::
     :maxdepth: 1
 
-    大屏的设计与布局.rst
+    大屏的设计与布局
