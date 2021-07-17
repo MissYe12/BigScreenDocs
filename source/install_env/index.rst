@@ -6,3 +6,8 @@
     vscode的下载
     Navicat-for-Mysql软件的下载
     MYSQL的下载
+    Nodejs的环境搭建
+
+
+
+    

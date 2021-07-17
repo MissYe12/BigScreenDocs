@@ -3,7 +3,6 @@
 .. toctree::
     :maxdepth: 1
 
-    Nodejs
     Express
-    Mysql的使用
+    Nodejs的使用
     搭建Node+Epress+Mysql框架
