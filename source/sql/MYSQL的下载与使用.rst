@@ -40,12 +40,46 @@ MYSQL的下载与使用
 
 由于修改密码需要管理员权限，所以我们以管理员身份打开命令提示符
 
-.. figure:: ../media/10-2-4.png
+.. figure:: ../media/10-2-5.png
     :align: center
     :alt: 
 
-    图10-2-4
+    图10-2-5
 
+一些简单的mysql命令
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+以下命令都基于登录MySQL数据库之后执行
+
+1. SHOW DATABASES; 显示当前所有的数据库
+
+其中test和user是我们新建的数据库，在后面的实验中你能更详细的了解要如何对MySQL数据库操作
+
+.. figure:: ../media/10-2-6.png
+    :align: center
+    :alt: 
+
+    图10-2-6
+
+2. USE test
+   
+执行以上命令后，你就已经成功选择了test数据库了，后续的操作命令都会在 test 数据库中执行
+
+.. figure:: ../media/10-2-7.png
+    :align: center
+    :alt: 
+
+    图10-2-7
+
+3. SHOW TABLES
+
+改命令是基于上一个命令的，显示的是test数据库中的表数据，table1、table2、table3都是我们新建的数据表
+
+.. figure:: ../media/10-2-8.png
+    :align: center
+    :alt: 
+
+    图10-2-8
 
 
     
