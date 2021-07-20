@@ -1,0 +1,86 @@
+伪类
+===================================
+
+超链接伪类
+~~~~~~~~~~~
+
+链接的样式可以用任何的CSS属性。
+
+不同的链接状态可以设置不同的CSS样式
+
+a:link-- 正常，未访问过的链接
+
+a:visited-- 用户已访问过的链接
+
+a:hover-- 当用户鼠标放在链接上
+
+a：active -- 链接被点击的那一刻
+
+举个例子：
+
+.. code-block:: css
+    :linenos:
+
+    /* 未访问的链接 */
+    a:link {
+        color: #FF0000;
+    }
+
+    /* 已访问的链接 */
+    a:visited {
+        color: #00FF00;
+    }
+
+    /* 鼠标悬停链接 */
+    a:hover {
+        color: #FF00FF;
+    }
+
+    /* 已选择的链接 */
+    a:active {
+        color: #0000FF;
+    }
+
+伪元素
+~~~~~~~~~~~~~
+
+伪元素指原本不存在的元素。
+
+::first-letter 表示元素中内容的第一个字母
+
+::first-line 表示元素中第一行的内容
+
+::selection 表示元素中选中的文本
+
+::before 表示元素中内容开始位置之前，可以结合content属性添加内容
+
+::after 表示元素中内容结束位置之后，可以结合content属性添加内容
+
+举个例子
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html >
+    <html>
+    <head>
+    <style>
+    p:first-letter
+    {
+        color:salmon;
+    }
+    </style>
+    </head>
+    <body>
+    <p>QQ</p>
+    </body>
+    </html>
+
+运行结果如图一所示：
+
+.. figure:: media/伪类/4.61.png
+    :align: center
+    :alt: error
+    
+    运行结果

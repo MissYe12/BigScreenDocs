@@ -1,26 +1,108 @@
-
 常用选择器
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================
 
+class 选择器用于描述一组元素的样式，一般有class 选择器和id选择器，其中class可以在多个元素中使用。
 
 通用选择器
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+通用选择器可以选择页面上的所有元素，并对它们应用样式，用 * 来表示。
+
+语法：* { property1: value; property2: value; }
+
+例如：
+
+.. code-block:: css
+    :linenos:
 
 
-元素选择器
-------------------------------------
-也叫标签选择器
+    * { 
+        margin: 0; padding: 0;
+    }
+
+这行代码可以删除每个元素在浏览器中margin和padding的默认值
+
+元素选择器（也叫标签选择器）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+最常见的 CSS 选择器是元素选择器。换句话说，文档的元素就是最基本的选择器。
+
+设置HTML的样式，选择器通常是某个元素。
+
+例如：
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <style>
+        p {color: purple;}
+    </style>
+    </head>
+    <body>
+    <p>哈哈</p>
+    </body>
+    </html>
 
 id选择器
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
+
+HTML元素以id属性来设置id选择器,CSS 中 id 选择器以 "#" 来定义。
+
+例如：
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <style>
+        #demo {color: red;}
+    </style>
+    </head>
+    <body>
+        <p id='demo'>哈哈</p>
+    </body>
+    </html>
+
+注意：ID属性不要以数字开头，数字开头的ID在 Mozilla/Firefox 浏览器中不起作用。
 
 类选择器
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+class 选择器用于描述一组元素的样式，class可以在多个元素中使用。
+
+class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一个点"."号显示。
+
+例如：
+
+.. code-block:: html
+    :linenos:
 
 
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <style>
+      .demo {color: red;}
+    </style>
+    </head>
+    <body>
+    <div class="demo">
+        <p>哈哈</p>
+        <p>嘿嘿</p>
+    </div>
+    </body>
+    </html>
 
-
-
-
-
-
+注意： 类名的第一个字符不能使用数字！它无法在 Mozilla 或 Firefox 中起作用。
