@@ -12,11 +12,11 @@ vscode是一款由微软开发，同时支持windows、linux和macos操作系统
 
 1. 进入vsc官网 https://code.visualstudio.com/
 
-.. figure:: ../media/1-1-1.png
-   :align: center
-   :alt: 
+.. figure:: media/download_vscode/1-1-1.png
+    :alt: error
+    :align: center
 
-   图1-1-1
+    图1-1-1
 
 
 
@@ -24,31 +24,31 @@ vscode是一款由微软开发，同时支持windows、linux和macos操作系统
    
 User Installer版：会安装在当前计算机帐户目录,意味着如果使用另一个帐号登陆计算机将无法使用别人安装的vscode。System Installer版：安装在非用户目录,例如C盘根目录,任何帐户都可以使用。vscode默认提供的User Installer版,大多数人都是用的这个版本。
 
-.. figure:: ../media/1-1-2.png
-   :align: center
-   :alt: 
+.. figure:: media/download_vscode/1-1-2.png
+    :alt: error
+    :align: center
 
-   图1-1-2
+    图1-1-2
 
 3. 下载完成后，双击打开安装程序，保持默认选项，点击下一步
 
-.. figure:: ../media/1-1-3.png
+.. figure:: media/download_vscode/1-1-3.png
+    :alt: error
     :align: center
-    :alt: 
 
     图1-1-3
 
-.. figure:: ../media/1-1-4.png
+.. figure:: media/download_vscode/1-1-4.png
+    :alt: error
     :align: center
-    :alt: 
 
     图1-1-4
 
 4. 勾选选项，点击下一步，然后安装，等待安装结束
 
-.. figure:: ../media/1-1-5.png
-    :align: center
-    :alt: 
+.. figure:: media/download_vscode/1-1-5.png
+    :alt: error
+    :align: center 
 
     图1-1-5
 

@@ -5,29 +5,29 @@ Web浏览器（考虑代码的兼容性）
 web浏览器有哪些
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Internet Explorer（IE浏览器）
+- Internet Explorer（IE浏览器）
 
-Microsoft Edge 浏览器
+- Microsoft Edge 浏览器
 
-Google Chrome（谷歌浏览器）
+- Google Chrome（谷歌浏览器）
 
-Firefox（火狐浏览器）
+- Firefox（火狐浏览器）
 
-Apple Safari（苹果 Safari 浏览器）
+- Apple Safari（苹果 Safari 浏览器）
 
-Opera 浏览器
+- Opera 浏览器
 
-Netscape 浏览器
+- Netscape 浏览器
 
-等等
+- \......
 
 其中比较流行的有
 
-Firefox
+- **Firefox**
 
-Chrome
+- **Chrome**
 
-InternetExplorer
+- **InternetExplorer**
 
 文中的大部分程序也会基于这三个浏览器来进行调试
 
@@ -62,6 +62,6 @@ InternetExplorer
 - CSS兼容
 - JavaScript兼容
 
-https://segmentfault.com/a/1190000019304397
-
 解决方法:
+
+https://segmentfault.com/a/1190000019304397 (要删)

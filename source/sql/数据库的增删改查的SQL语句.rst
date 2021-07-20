@@ -18,9 +18,9 @@
 
     SHOW DATABASES;
 
-.. figure:: ../media/10-5-1.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-1.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-1
 
@@ -33,17 +33,17 @@
 
     CREATE DATABASE;
 
-.. figure:: ../media/10-5-2.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-2.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-2
 
 3. 再次显示更改后的数据库，可以看见已经有test数据库
 
-.. figure:: ../media/10-5-3.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-3.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-3
 
@@ -60,9 +60,9 @@
     
     SHOW TABLES;
 
-.. figure:: ../media/10-5-4.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-4.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-4
 
@@ -91,17 +91,17 @@
 - ENGINE 设置存储引擎，MySQL5.1版本后的默认储存引擎为InnoDB，5.1版本之前的默认存储引擎为MyIsam
 - CHARSET 设置编码，为了能够显示中文，一般设置为utf8
 
-.. figure:: ../media/10-5-5.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-5.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-5
 
 3. 输入 SHOW TABLES; 可以看到有table_test表，输入SELECT * FROM table_test; 可以看到表内部的信息，此时表内还没有记录行
 
-.. figure:: ../media/10-5-6.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-6.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-6
 
@@ -127,25 +127,25 @@
 
 因为数据表主键的自增属性，即便不输入id的值，也能在插入记录时自动添加一个id，其值就是上一行id加1.
 
-.. figure:: ../media/10-5-7.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-7.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-7
 
 2. 输入SELECT * FROM table_test; 显示数据表内的数据，可以看到有两条记录行
 
-.. figure:: ../media/10-5-8.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-8.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-8
 
 3. 试着重复上述步骤，制作一张包含以下信息的表，并查看能否正常显示中文
    
-.. figure:: ../media/10-5-9.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-9.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-9
 
@@ -163,9 +163,9 @@
 
 2. 查看数据表，可以看到id=1对应行的数据已被修改
    
-.. figure:: ../media/10-5-10.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-10.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-10
 
@@ -173,25 +173,25 @@
 
 修改成已经存在的id号，会报错
 
-.. figure:: ../media/10-5-11.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-11.png
+    :alt: error
     :align: center
-    :alt: 
     
     图10-5-11
 
 如图因为id列的自增属性导致会报错，如果是修改其他列的数据，一列上即便有多个相同的数据也不会报错
 
-.. figure:: ../media/10-5-12.png
-    :align: center
-    :alt: 
+.. figure:: media/数据库的增删改查的SQL语句/10-5-12.png
+    :alt: error
+    :align: center 
 
     图10-5-12
 
 修改成更大的id号，会自动排序
 
-.. figure:: ../media/10-5-13.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-13.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-13
 
@@ -210,9 +210,9 @@
         ->WHERE sex = 'female';
 
 
-.. figure:: ../media/10-5-14.png
-    :align: center
-    :alt: 
+.. figure:: media/数据库的增删改查的SQL语句/10-5-14.png
+    :alt: error
+    :align: center 
 
     图10-5-14
 
@@ -225,10 +225,10 @@
         ->WHERE sex = 'female' or sex = 'male'
         ->LIMIT 3 OFFSET 1;
 
-.. figure:: ../media/10-5-15.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-15.png
+    :alt: error
     :align: center
-    :alt: 
-
+    
     图10-5-15
 
 删除数据库(谨慎)
@@ -243,9 +243,9 @@
 
     DROP TABLE table_test;
 
-.. figure:: ../media/10-5-16.png
-    :align: center
-    :alt: 
+.. figure:: media/数据库的增删改查的SQL语句/10-5-16.png
+    :alt: error
+    :align: center 
 
     图10-5-16
 
@@ -256,9 +256,9 @@
 
     DROP DATABASES test;
 
-.. figure:: ../media/10-5-17.png
+.. figure:: media/数据库的增删改查的SQL语句/10-5-17.png
+    :alt: error
     :align: center
-    :alt: 
 
     图10-5-17
 
