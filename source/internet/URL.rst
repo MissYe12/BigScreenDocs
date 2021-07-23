@@ -79,13 +79,19 @@ https://developer.mozilla.org/en-US/docs/Learn
 
 Skills/Infrastructure/Understanding_URLs
 
-因为该URL不以/开头，浏览器将尝试在包含当前资源的子目录中查找文档。所以在这个例子中，我们真的想要达到这个URLhttps://developer.mozilla.org/en-US/docs/Learn/Skills/Infrastructure/Understanding_URLs
+因为该URL不以/开头，浏览器将尝试在包含当前资源的子目录中查找文档。所以在这个例子中，我们真的想要达到这个URL 
+
+https://developer.mozilla.org/en-US/docs/Learn/Skills/Infrastructure/Understanding_URLs
 
 **回到目录树中**
 
 ../CSS/display
 
-在这种情况下，我们使用从UNIX文件系统世界继承的../写入约定来告诉我们要从一个目录上升的浏览器。在这里，我们要达到以下URL：https://developer.mozilla.org/en-US/docs/Learn/../CSS/display，可以将其简化为：https://developer.mozilla.org/en-US/docs/CSS/display
+在这种情况下，我们使用从UNIX文件系统世界继承的../写入约定来告诉我们要从一个目录上升的浏览器。
+
+在这里，我们要达到以下URL：https://developer.mozilla.org/en-US/docs/Learn/../CSS/display
+
+可以将其简化为：https://developer.mozilla.org/en-US/docs/CSS/display
 
 
 

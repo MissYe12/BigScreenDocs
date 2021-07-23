@@ -2,12 +2,6 @@
 Node.js
 =======================
 
-**问题**
-
-搜索模块时报错，可能是在使用淘宝镜像源，把cnpm切换回 npm
-https://blog.csdn.net/weixin_34248705/article/details/92298654
-
-
 Node.js简介
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -20,17 +14,37 @@ Node.js的优点
 
 从 web 服务器开发的角度来看，Node 有很多好处：
 
-高并行
+高并行能力：NodeJs的首要目标是提供一种简单的、用于创建高性能服务器及可在该服务器中运行的各种应用程序的开发工具。
 
-Nodejs语法完全是js语法，只要你懂js基础就可以学会Nodejs后端开发
-
-Node.js 具有独特的优势，因为为浏览器编写 JavaScript 的数百万前端开发者现在除了客户端代码之外还可以编写服务器端代码，而无需学习完全不同的语言。
-
-发周期短、开发成本低、学习成本低
+学习成本低：Nodejs语法完全是js语法，编写 JavaScript 的前端开发者现在除了客户端代码之外还可以编写服务器端代码，而无需学习完全不同的语言。
 
 node.js怎么使用
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-打开命令提示符，使用npm或者node命令
+
+打开命令提示符，进入到需要使用node.js的工程目录下
+
+使用npm命令行：
+
+.. code-block::
+    :linenos:
+    
+    npm install express
+
+
+.. figure:: media/Nodejs的使用/13-1-1.png
+    :alt: error
+    :align: center
+
+    图13-1-1
+
+或使用node命令行：
+
+.. code-block::
+    :linenos:
+    
+    node server.js
+
+运行server.js文件
 
 HelloNode.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,17 +59,22 @@ HelloNode.js
 
 **实验步骤：**
 
-1. 创建项目NodeTest
+1. 新建文件夹NodeTest，在文件夹内新建HelloNode.js
 
-2. 创建文件HelloNode.js
+2. 用vscode打开文件夹，然后打开HelloNode.js，然后用required()引入http模块。
 
-3. 引入required模块，引入自带的http模块
+.. code-block:: js
+    :linenos:
 
-4. 创建服务器，代码解析
+    var http = require('http');  //请求（require）Node.js 自带的 http 模块，并将实例化的 HTTP 赋值给变量 http。
+
+node提供了http这个核心模块，不用安装(install)，直接引用即可，用于创建http server
+
+3. 创建服务器
 
 代码分析：第一行请求（require）Node.js 自带的 http 模块，并且把它赋值给 http 变量。
 
-接下来我们调用 http 模块提供的函数： createServer 。这个函数会返回 一个对象，这个对象有一个叫做 listen 的方法，这个方法有一个数值参数， 指定这个 HTTP 服务器监听的端口号。
+接下来我们调用 http 模块提供的函数： createServer 。该函数会返回一个对象，这个对象有 listen() 方法，该方法有一个数值参数， 指定这个 HTTP 服务器监听的端口号。
 
 .. code-block:: js
     :linenos:
@@ -63,7 +82,7 @@ HelloNode.js
     var http = require('http');  //请求（require）Node.js 自带的 http 模块，并将实例化的 HTTP 赋值给变量 http。
 
     //使用 http.createServer() 方法创建服务器, 并使用 listen 方法绑定 8888 端口, 函数通过 request, response 参数来接收和响应数据。
-    http.createServer(function (request, response) {  
+    http.createServer((request, response) => {  
     
         //函数通过 request, response 参数来接收和响应数据。
         
@@ -80,34 +99,41 @@ HelloNode.js
     console.log('Server running at http://127.0.0.1:8888/');
 
 
-5. 打开命令提示符号node HelloNode.js 执行以上代码
+4. 在vscode打开终端运行HelloNode.js 
 
-完成以上代码后，我们就完成了一个可以工作的HTTP服务器
-使用node命令来验证效果,打开命令提示符窗口 -> 进入server.js目录下 -> 输入node HelloNode.js
+.. figure:: media/Nodejs的使用/13-1-2.png
+    :alt: error
+    :align: center
 
-图
+    图13-1-2
 
 出现上图结果表示服务器启动成功
 
-6. 打开浏览器，访问刚刚创建的浏览器，在地址框中输入http://127.0.0.1:8888/，会看到一个写着hello world的网页
+5. 打开浏览器，访问刚刚创建的浏览器，在地址框中输入http://127.0.0.1:8888/，会看到一个写着hello world的网页
 
-接下来可以打开浏览器访问 http://127.0.0.1:8888/，你可以看到一个写着 "Hello World"的网页。
+.. figure:: media/Nodejs的使用/13-1-3.png
+    :alt: error
+    :align: center
 
+    图13-1-3
 
-npm  
+npm简介
 ~~~~~~~~~~~~~~~~~~~~~
 
 npm 是 Node.js 标准的软件包管理器
 
 npm 可以管理项目依赖的下载。
 
-
 npm使用介绍
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-node.js已经内置了npm，安装node.js的同时，npm也一并安装好了。输入命令行：npm -v 可以查看版本
+node.js已经内置了npm，安装node.js的同时，npm也一并安装好了。打开命令提示符，输入命令行：npm -v 可以查看版本
 
-图
+.. figure:: media/Nodejs的使用/13-1-4.png
+    :alt: error
+    :align: center
+
+    图13-1-4
 
 NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：
 
@@ -126,7 +152,7 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
     $ npm install <Module Name>
 
-其中$表示的需要安装node.js模块的工程目录下
+其中$表示的需要安装node.js模块的工程路径
 
 接下来我们用npm命令安装常用的node.js Web框架模块express
 
@@ -139,7 +165,13 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
 安装完成
 
-图
+.. figure:: media/Nodejs的使用/13-1-5.png
+    :alt: error
+    :align: center
+
+    图13-1-5
+
+当然，你也可以在vscode的终端下执行该命令进行安装
 
 安装完成后可以看到工程目录下多了一个node_modules文件夹，因此只需要在.js文件中用 require('express')的方式来应用，无需制定第三方包路径
 
@@ -203,7 +235,7 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
 2. 全局安装
 
-放在系统中的单独位置（确切的位置取决于设置），无论在何处运行 npm install -g <package-name>。
+安装后放置在系统中的单独位置（确切的位置取决于设置），无论在何处运行 npm install -g <package-name>。
 
 上面的简单实验都是基于工程目录的局部安装，依赖包只运行在安装的目录下，并且放置在工程目录下的node_modules文件夹中
 
@@ -214,5 +246,8 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
 淘宝源是什么
 
-国内使用npm下载时可能会出现下载速度慢的问题，淘宝源就是将npm上的内容做了一份复制，只需要设置使用淘宝源就能从国内下载到一模一样的内容
+国内使用npm下载时可能会出现下载速度慢的问题，淘宝源就是将npm上的内容做了一份复制，只需要设置使用淘宝源就能从国内下载到一模一样的内容，下载速度也能有所提升
 
+**一些问题**
+
+在搜索模块(npm search)时报错，可能是在使用淘宝镜像源，把cnpm切换回 npm即可 https://blog.csdn.net/weixin_34248705/article/details/92298654

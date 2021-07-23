@@ -1,9 +1,6 @@
-https://developer.mozilla.org/zh-CN/docs/learn/Server-side/Express_Nodejs/Introduction
-https://www.runoob.com/nodejs/nodejs-express-framework.html
+
 Express
 ===================================
-
-4.x Express API参考手册
 
 简介
 ~~~~~~~~~~~~~~~~
@@ -25,11 +22,22 @@ Express 框架核心特性：
 HelloExpress.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+1. 新建一个文件夹HelloExpress，文件件内新建文件HelloExpress.js
+
+2. 使用vscode打开文件夹后，在终端中输入
+
+.. code-block:: 
+    :linenos:
+
+    npm install express
+
+3. 打开js文件，输入代码：
+
 .. code-block:: js
     :linenos:
 
     var express = require('express');  //require()引入express模块
-    var app = express();        //创建一个express对象
+    var app = express();        //创建一个express()实例
 
     //路由定义
 
@@ -41,10 +49,34 @@ HelloExpress.js
     console.log('示例应用正在监听 3000 端口!'); //在控制台打印日志
     });
 
-最后一个代码块在 “3000” 端口上启动服务器，并在控制台打印日志。服务器运行时，可用浏览器访问 localhost:3000，看看响应返回了什么。
-    
-app对象具有以下方法
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+在终端输入命令行 node HelloExpress.js 启动服务器
+
+.. figure:: media/Express/13-2-1.png
+    :alt: error
+    :align: center
+
+    图13-2-1
+
+4.服务器运行时，可用浏览器访问 http://localhost:3000，可以看到页面上出现Hello Express!字样。
+
+.. figure:: media/Express/13-2-2.png
+    :alt: error
+    :align: center
+
+    图13-2-2
+
+路由
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. app对象一般用来表示Express程序。通过调用Express模块导出的顶层的express()方法来创建它:
+
+.. code-block:: js
+    :linenos:
+
+    var express = require('express');  //require()引入express模块
+    var app = express();        //创建一个express()实例
+
+2. app对象具有以下方法
 
 路由HTTP请求；具体可以看app.METHOD和app.param这两个例子。
 
@@ -54,32 +86,69 @@ app对象具有以下方法
 
 注册模板引擎；具体请看app.engine。
 
-简单api实例
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Express官方文档：https://www.expressjs.com.cn/4x/api.html
 
-**postman或者apipost的使用**
+3. 几个常见的路由请求的定义
 
-.. code-block:: js
-    :linenos:
+   app.get
 
-    app.get('/',(req,res) => {
-        res.send('这是get请求')
-    })
+   .. code-block:: js
+       :linenos:
+
+        app.get('/',(req,res) => {
+            //处理请求   
+            res.send('这是get请求')
+        })
+
+   app.post
+
+   .. code-block:: js
+       :linenos:
+       
+        app.post('/',(req,res) =>{
+            //处理请求
+            res.send('这是post请求')
+        })
+
+   app.delete
+
+   .. code-block:: js
+       :linenos:
+       
+        app.delete('/',(req,res) =>{
+            //处理请求
+            res.send('这是delete请求')
+        })
+
+   app.listen
+
+   .. code-block:: js
+       :linenos:
+       
+        //在3000端口号上启动服务
+        app.listen(3000,() =>{})
+
+       
+中间件
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 中间件是什么
+ 
+在Express中，中间件就是一个可以访问请求对象、响应对象和调用next方法的一个函数。
+
+在使用时一般使用use方法
 
 .. code-block:: js
     :linenos:
     
-    app.post('/',(req,res) =>{
-        res.send('这是post请求')
-    })
+    app.use('/', function(req,res,next)=>{
+        next();
+    });
 
-app.delete
+其中回调函数function就是一个中间件，在中间件处理完数据之后，就会调用next方法
 
-app.patch
+注意：如果当前的中间件功能没有结束请求-响应周期，则必须调调用next()将控制权传递给下一个中间件功能，否则该请求将被挂起
 
-app.listen
+2. 中间件的分类
 
-中间件route
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
+中间件总共有三种，分别是自定义中间件，内置中间件，第三方中间件
