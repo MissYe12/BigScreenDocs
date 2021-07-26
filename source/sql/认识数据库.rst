@@ -2,8 +2,6 @@
 认识数据库
 ===================================
 
-https://www.oracle.com/cn/database/what-is-database/#link6
-
 数据库的定义
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
