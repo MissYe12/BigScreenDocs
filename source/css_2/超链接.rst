@@ -1,3 +1,46 @@
-
 超链接
-~~~~~~~~~~~~~~~~~~
+===================================
+
+链接样式
+~~~~~~~~~~~~
+
+链接的样式，可以用任何CSS属性。
+
+不同状态的链接会有不同的链接样式。
+
+有四种链接状态： 
+a:link - 正常，未访问过的链接
+a:visited - 用户已访问过的链接
+a:hover - 当用户鼠标放在链接上时
+a:active - 链接被点击的那一刻
+
+当设置为若干链路状态的样式，也有一些顺序规则：
+
+a:hover 必须跟在 a:link 和 a:visited后面；
+a:active 必须跟在 a:hover后面
+
+常见的链接样式
+~~~~~~~~~~~~~~~
+
+**文本修饰**
+
+text-decoration 属性主要用于删除链接中的下划线。
+
+示例： a:link {text-decoration:none;}
+
+**背景颜色**
+
+背景颜色属性指定链接背景色。
+
+示例： 
+
+.. code-block:: css
+    :linenos:
+
+
+    a:link {background-color: red;}    
+    a:visited {background-color: yellow;} 
+    a:hover {background-color: blue;}  
+    a:active {background-color: green;}
+
+

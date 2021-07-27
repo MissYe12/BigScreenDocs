@@ -1,7 +1,104 @@
-
 定位
+===================================
+
+position 属性指定了元素的定位类型。
+
+position 属性的五个值：static，relative，fixed，absolute和sticky。
+
+元素可以使用的顶部，底部，左侧和右侧属性定位。然而，这些属性无法工作，除非是先设定position属性。他们也有不同的工作方式，这取决于定位方法
+
+static定位
+~~~~~~~~~~~~~~~~
+
+HTML 元素的默认值，即没有定位，遵循正常的文档流对象。
+静态定位的元素不会受到 top, bottom, left, right影响。
+
+fixed 定位
+~~~~~~~~~~~~~~~~
+
+元素的位置相对于浏览器窗口是固定位置。
+
+即使窗口是滚动的它也不会移动。
+
+注： Fixed 定位在 IE7 和 IE8 下需要描述 !DOCTYPE 才能支持。
+
+Fixed定位使元素的位置与文档流无关，因此不占据空间。
+
+Fixed定位的元素和其他元素重叠。
+
+relative 定位
+~~~~~~~~~~~~~~~~~~
+
+相对定位元素的定位是相对其正常位置。移动相对定位元素，但它原本所占的空间不会改变。相对定位元素经常被用来作为绝对定位元素的容器块。
+
+也常与top，bottom，right，left等配合运用。
+
+示例如下：
+
+.. code-block:: css
+    :linenos:
+
+
+    p {
+        position: relative;
+        top: -50px;
+    }
+
+运行结果为p段落的文字都会向上移动50px。
+
+relative的作用： 
+
+- 限制left/top/right/bottom定位
+- 限制层级
+- 当某个由absolute定位的元素溢出时，若overflow属性值为hidden，则会将溢出的部分也隐藏。
+- 提高层叠上下文。比如： 如果有两张图片层叠在一起，想让下面的图片放到上面来，就可以设置下面的图片的position为relative。
+
+注： 
+1、relative无侵入作用，即他不会影响其他元素的布局。
+
+2、relative的最小化影响原则：尽量降低relative属性对其他元素或布局的潜在影响。
+
+做法： 将要设置的元素独立成一个div，将这个div设置成relative，要设置的元素为absolute。
+
+absolute 定位
 ~~~~~~~~~~~~~~~~~
 
+绝对定位的元素的位置相对于最近的已定位父元素，找第一个不是 static 的元素，如果元素没有已定位的父元素，那么它的位置相对于<html>
+
+absolute 定位使元素的位置与文档流无关，因此不占据空间。absolute 定位的元素和其他元素重叠。
+
+常用于定位盒子对象，即定位父元素中子元素的位置。
+
+往往跟top, bottom, left, right搭配使用。
+
+示例如下：
+
+.. code-block:: css
+    :linenos:
 
 
+    p {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
 
+运行结果为p段落的位置在距离左边的页面100px和距离页面的顶部50px。
+
+sticky 定位
+~~~~~~~~~~~~~~~~~~~~
+
+基于用户的滚动位置来定位，在 position:relative 与 position:fixed 定位之间切换。
+它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
+元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。
+
+这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。
+
+注：  Internet Explorer, Edge 15 及更早 IE 版本不支持 sticky 定位。
+
+重叠的元素
+~~~~~~~~~~~~~~
+
+元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素
+
+重叠元素如何分层呈现，一般用z-index属性，详见元素的层级。

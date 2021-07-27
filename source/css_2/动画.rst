@@ -1,4 +1,91 @@
-
 动画animation
-~~~~~~~~~~~~~~~~~~~~~~~
+======================================================================
+
+CSS3 可以创建动画，它可以取代许多网页动画图像、Flash 动画和 JavaScript 实现的效果。
+
+CSS3 @keyframes 规则
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@keyframes 规则是创建动画。
+
+使用@keyframes规则，你可以创建动画。
+创建动画是通过逐步改变从一个CSS样式设定到另一个。
+在动画过程中，您可以更改CSS样式的设定多次。
+指定的变化时发生时使用％，或关键字"from"和"to"，这是和0％到100％相同。
+0％是开头动画，100％是当动画完成。
+为了获得最佳的浏览器支持，您应该始终定义为0％和100％的选择器。
+
+用法： @keyframes animationname {keyframes-selector {css-styles;}}
+
+其中animationname为动画名称
+
+keyframes-selector为动画持续时间的百分比，合法值有：0-100%或from (和0%相同)to (和100%相同)
+
+css-styles是一个或多个合法的CSS样式属性。
+
+注：@keyframes 规则 不兼容 IE 9 以及更早版本的浏览器。
+
+示例：
+
+.. code-block:: css
+    :linenos:
+
+
+    @keyframes mymove {
+	        from {top: 0px;}
+	        to {top: 200px;}
+    }
+
+CSS3 动画
+~~~~~~~~~~~~~
+
+只用@keyframes 创建动画是没有动画效果的，还需要把它绑定到一个选择器。
+
+指定至少这两个CSS3的动画属性绑定向一个选择器：规定动画的名称和规定动画的时长（如果省略的持续时间，动画将无法运行，因为默认值是0）
+
+用法： 1、选择器 {(浏览器支持)animation: 动画名称 动画时长 各种动画属性}
+
+2、选择器 {动画属性一： 属性值一; 动画属性二： 属性值二;动画属性n： 属性值n;}
+
+CSS3所有动画属性如图表一所示： 
+
+.. figure:: media/动画/5.51.png
+    :align: center
+    :alt: error 
+    
+    CSS3所有动画属性
+
+示例： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <head>
+    <style> 
+    div {
+	    width: 60px;
+	    height: 60px;
+	    background: red;
+	    animation:myfirst 5s;
+	    -webkit-animation:myfirst 5s; /* Safari and Chrome */
+    }
+    @keyframes myfirst
+    {
+	    from {background: red;}
+	    to {background: blue;}
+    }
+    @-webkit-keyframes myfirst /* Safari and Chrome */
+    {
+	    from {background: red;}
+	    to {background: blue;}
+    }
+    </style>
+    </head>
+    <body>
+        <div></div>
+    <body>
+
+运行结果为一个方块由红变蓝。
+
 

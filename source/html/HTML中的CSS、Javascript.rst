@@ -113,9 +113,20 @@ HTML <script> 标签用于定义客户端脚本（JavaScript）。
 
 <script> 元素即可包含脚本语句，也可通过 src 属性指向外部脚本文件。
 
+指向外部脚本文件示例如下： 
+
+.. code-block:: html
+    :linenos:
+
+    <script type="text/javascript" src="文件名.js"></script>
+
 JavaScript 的常见用途是图像处理、表单验证和内容的动态更改。
 
 如需选取 HTML 元素，JavaScript 最常用 document.getElementById() 方法。
+
+注： 如果为了获取某个元素的id或者其他信息等，必须保证你的js代码是在网页Dom结构已加载到内存后才运行的，否则像document.getElementById()方法等，拿到的只能是空对象。
+
+解决方法： 将引入的外部Javascript文件放在<body>后，以确保DOM结构已加载到内存。
 
 例如：
 
