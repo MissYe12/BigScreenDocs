@@ -17,7 +17,8 @@ class 选择器用于描述一组元素的样式，一般有class 选择器和id
 
 
     * { 
-        margin: 0; padding: 0;
+        margin: 0; 
+        padding: 0;
     }
 
 这行代码可以删除每个元素在浏览器中margin和padding的默认值

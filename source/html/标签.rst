@@ -21,19 +21,77 @@ HTML标签是HTML语言中最基本的单位。更多详尽的标签详见https:
 
 **常见的自结束标签**
 
-meta：定义页面说明，方便网络引擎搜索
+- meta：定义页面说明，方便网络引擎搜索
+  
+  例如： 
 
-link:连接外部CSS文件或者脚本
+  .. code-block:: html
+    :linenos:
 
-base：页面所有连接的基础定位
 
-br：换行
+    <meta charset = "utf-8">
 
-hr:水平线
+- link:连接外部CSS文件或者脚本
 
-input:定义表单元素
+  例如：
 
-img:图像标签
+  .. code-block:: html
+    :linenos:
+
+
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+- base：页面所有连接的基础定位(注意： 在一个文档中，最多能使用一个 <base> 元素。<base> 标签必须位于 <head> 元素内部。)
+
+  例如： 
+
+  .. code-block:: html
+    :linenos:
+
+
+    <base href="http://www.runoob.com/" target="_blank">    
+
+- br：换行
+
+  例如： 
+
+  .. code-block:: html
+    :linenos:
+
+
+    <p>哈<br>哈<p>
+
+- hr:水平线
+
+  例如： 
+
+  .. code-block:: html
+    :linenos:
+
+
+    <p>HTML</p>
+    <hr>
+    <h1>CSS</h1>
+
+- input:定义表单元素
+
+  例如： 
+
+  .. code-block:: html
+    :linenos:
+
+
+    <input type="text" name="FirstName" value="Mickey">
+
+- img:图像标签
+
+  例如：
+
+  .. code-block::
+    :linenos:
+
+
+    <img src="smiley-2.gif" alt="Smiley face" width="42" height="42">
 
 一般标签都是成对标签，都是成对出现的，可以在中间插入内容。
 
@@ -67,19 +125,19 @@ img:图像标签
 
 注意：请仅仅把标题标签用于标题文本。不要仅仅为了产生粗体文本而使用它们。请使用其它标签或 CSS 代替。
 
-段落标签，换行标签，水平线
+段落标签，换行标签，水平线,粗体，斜体
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-段落标签<p></p>,换行标签<br>,水平线<hr>。
+段落标签<p></p>,换行标签<br>,水平线<hr>，粗体<b></b>,斜体<i></i>。
 
 .. code-block:: html
     :linenos:
 
     <html>
     <body>
-    <p>hr 标签定义水平线：</p>
+    <p>hr <b>标签定义水平线：</b></p>
     <hr />
-    <p>这是段落。</p>
+    <p><i>这是段落。<i></p>
     <hr />
     <p>这是<br>段落。</p>
     </body>

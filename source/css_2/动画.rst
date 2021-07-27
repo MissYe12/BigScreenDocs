@@ -32,8 +32,12 @@ css-styles是一个或多个合法的CSS样式属性。
 
 
     @keyframes mymove {
-	        from {top: 0px;}
-	        to {top: 200px;}
+	    from {
+            top: 0px;
+        }
+	    to {
+            top: 200px;
+        }
     }
 
 CSS3 动画
@@ -67,18 +71,26 @@ CSS3所有动画属性如图表一所示：
 	    width: 60px;
 	    height: 60px;
 	    background: red;
-	    animation:myfirst 5s;
-	    -webkit-animation:myfirst 5s; /* Safari and Chrome */
+	    animation: myfirst 5s;
+	    -webkit-animation: myfirst 5s; /* Safari and Chrome */
     }
     @keyframes myfirst
     {
-	    from {background: red;}
-	    to {background: blue;}
+	    from {
+            background: red;
+        }
+	    to {
+            background: blue;
+        }
     }
     @-webkit-keyframes myfirst /* Safari and Chrome */
     {
-	    from {background: red;}
-	    to {background: blue;}
+	    from {
+            background: red;
+        }
+	    to {
+            background: blue;
+        }
     }
     </style>
     </head>
@@ -88,4 +100,66 @@ CSS3所有动画属性如图表一所示：
 
 运行结果为一个方块由红变蓝。
 
+拓展：另一种动画制作方法。
+
+html的canvas + JS控制
+
+方法： 
+
+1、先定义一个宽高已知的canvas。
+
+2、用JS中的setInterval（间隔执行代码，间隔运行毫秒数) 函数控制每一次的绘画和清屏。
+
+注意： 1、canvas展现出来的宽高与CSS的style设置的一样，但是实际绘画的宽高还是在html设置的宽高或者是JS中设置的宽高。
+
+打个比方： 就有点好比于CSS设置出的那个宽高是画板的宽高，在html设置的宽高或者是JS中设置的宽高是画纸的宽高，
+
+2、画出来的东西也会随着CSS的style控制而有一定的拉伸。（比如： 可能圆会变成椭圆）
+
+避免方法： 不要在CSS中设置canvas的宽高。
+
+3、浏览器默认canvas的宽高为： 300px和150px。
+
+具体实现步骤请看以下例子：
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>test</title>
+        </head>
+        <body>
+            <canvas id = "donghua" style="height: 150px; width: 300px;"></canvas>
+            <script>
+                var c = document.getElementById("donghua");//获取画布的ID
+                var x = 300;//画布的宽
+                var y = 150;//画布的高
+                var t = 0;
+                var can = c.getContext("2d");//创建平面的绘画环境
+                setInterval(function(){
+                    t++;
+                    //清屏
+                    can.fillStyle = "#f0f8ff";//设置填充颜色 
+                    can.beginPath();//开始绘画路径
+                    can.fillRect(0,0,x,y);//填充整个画布
+                    can.closePath();//关闭绘画路径
+                    //绘画
+                    can.beginPath();//开始绘画路径
+                    if(t % 2 == 0)
+                    can.arc(15,15,3,0,Math.PI*2);//画圆,圆心在（15,15）处，半径为3，起始角为0度，终点为360度，绘画方向是
+                    else
+                    can.arc(30,30,3,0,Math.PI*2);
+                    can.closePath();//关闭绘画路径
+                    can.fillStyle = "#000000";//设置填充颜色 
+                    can.fill();//进行填充
+                },100);//每100毫秒就执行一次。 
+            </script>
+        </body>
+    </html>
+
+运行结果是： 小球在这两个点反复弹跳。
 

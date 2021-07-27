@@ -248,10 +248,12 @@ align-content 属性用于对齐弹性线.
 .. code-block:: css
   :linenos:
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  .demo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 注释： 当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置。
 translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。
@@ -317,7 +319,7 @@ flex-grow 属性规定某个 flex 项目相对于其余 flex 项目将增长多�
 
 是 flex-grow、flex-shrink 和 flex-basis 属性的简写属性。
 
-用法： style = "flex: flex-grow属性值 flex-shrink属性值 flex-basis属性值";
+用法： style = "flex: flex-grow属性值  flex-shrink属性值  flex-basis属性值";
 
 **align-self 属性**
 

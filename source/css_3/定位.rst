@@ -54,11 +54,12 @@ relative的作用：
 - 提高层叠上下文。比如： 如果有两张图片层叠在一起，想让下面的图片放到上面来，就可以设置下面的图片的position为relative。
 
 注： 
+
 1、relative无侵入作用，即他不会影响其他元素的布局。
 
 2、relative的最小化影响原则：尽量降低relative属性对其他元素或布局的潜在影响。
 
-做法： 将要设置的元素独立成一个div，将这个div设置成relative，要设置的元素为absolute。
+做法： 将要设置的元素独立成一个div，将这个div设置成relative，要设置的元素为absolute。这样在子元素里设置top和left等，都是基于设置成relative的父元素的top和left。
 
 absolute 定位
 ~~~~~~~~~~~~~~~~~

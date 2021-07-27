@@ -1,6 +1,10 @@
 伪类
 ===================================
 
+伪类可以看作以选中元素为基准点，此元素的一些状态或属性。
+
+所有CSS伪类/元素详见https://www.runoob.com/css/css-pseudo-classes.html
+
 超链接伪类
 ~~~~~~~~~~~
 
@@ -41,6 +45,50 @@ a：active -- 链接被点击的那一刻
         color: #0000FF;
     }
 
+注意： 
+
+1、在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+
+2、 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+    
+3、伪类的名称不区分大小写。
+
+：lang伪类
+~~~~~~~~~~~~~
+
+:lang 伪类使你有能力为不同的语言定义特殊的规则。
+
+举个例子： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8"> 
+    <style>
+    q:lang(n)
+    {
+        quotes: "#" "~";
+    }
+    </style>
+    </head>
+
+    <body>
+    <p>Some<q lang="n">A quote</q> Some</p>
+    </body>
+    </html>
+
+运行结果如图一所示：
+
+.. figure:: media/伪类/4.61.png
+    :align: center
+    :alt: error
+        
+    运行结果
+
 伪元素
 ~~~~~~~~~~~~~
 
@@ -77,9 +125,9 @@ a：active -- 链接被点击的那一刻
     </body>
     </html>
 
-运行结果如图一所示：
+运行结果如图二所示：
 
-.. figure:: media/伪类/4.61.png
+.. figure:: media/伪类/4.62.png
     :align: center
     :alt: error
     

@@ -23,7 +23,17 @@
 
 text-decoration 属性用来设置或删除文本的装饰。
 
-从设计的角度看 text-decoration属性主要是用来删除链接的下划线。例如： a {text-decoration:none;}
+从设计的角度看 text-decoration属性主要是用来删除链接的下划线。
+
+例如： 
+
+.. code-block:: css
+    :linenos:
+
+
+    a {
+    text-decoration: none;
+    }
 
 举个例子：
 
@@ -34,7 +44,7 @@ text-decoration 属性用来设置或删除文本的装饰。
     <head>
     <meta charset="utf-8"> 
     <style>
-        h1 {text-decoration:overline;}
+        h1 {text-decoration: overline;}
     </style>
     </head>
     <body>
@@ -70,7 +80,9 @@ text-decoration 属性用来设置或删除文本的装饰。
 
     <head>
     <style>
-        p {text-transform: uppercase}
+        p {
+        text-transform: uppercase;
+        }
     </style>
     </head>
     <body>

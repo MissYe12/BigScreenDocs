@@ -26,7 +26,15 @@ a:active 必须跟在 a:hover后面
 
 text-decoration 属性主要用于删除链接中的下划线。
 
-示例： a:link {text-decoration:none;}
+示例： 
+
+.. code-block:: css
+    :linenos:
+
+
+    a:link {
+        text-decoration: none;
+    }
 
 **背景颜色**
 
@@ -38,9 +46,17 @@ text-decoration 属性主要用于删除链接中的下划线。
     :linenos:
 
 
-    a:link {background-color: red;}    
-    a:visited {background-color: yellow;} 
-    a:hover {background-color: blue;}  
-    a:active {background-color: green;}
+    a:link {
+        background-color: red;
+    }    
+    a:visited {
+        background-color: yellow;
+    } 
+    a:hover {
+        background-color: blue;
+    }  
+    a:active {
+        background-color: green;
+    }
 
 

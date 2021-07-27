@@ -79,7 +79,7 @@ font-size 属性设置文本的大小。font-size 值可以是绝对或相对大
 
 响应式字体大小
 
-使用 vw 单位设置文本大小，它的意思是“视口宽度”。文本大小将遵循浏览器窗口的大小。
+使用 vw/vh 单位设置文本大小，它的意思是“视口宽度”。文本大小将遵循浏览器窗口的大小。
 
 示例： 
 
@@ -106,11 +106,21 @@ font-family规定元素的字体系列，可以把多个字体名称作为一个
 
 通常字体系列名称：比如："serif"、"sans-serif"、"cursive"、"fantasy"、"monospace"
 
-注： 1、使用逗号分割每个值，并始终提供一个类族名称作为最后的选择。
+注： 
+
+1、使用逗号分割每个值，并始终提供一个类族名称作为最后的选择。
 
 2、使用某种特定的字体系列（Geneva）完全取决于用户机器上该字体系列是否可用；这个属性没有指示任何字体下载。因此，通常使用一个通用字体系列名作为后路
 
-示例： p {font-family:"Times New Roman",Serif;}
+示例： 
+
+.. code-block:: css
+    :linenos:
+
+
+    p {
+        font-family: "Times New Roman",Serif;
+    }
 
 **font-style**
 
@@ -126,7 +136,15 @@ font-style 属性定义字体的风格，该属性设置使用斜体、倾斜或
     
     font-style可能的属性值
 
-示例： p {font-style:normal;}
+示例： 
+
+.. code-block:: css
+    :linenos:
+
+
+    p {
+        font-style: normal;
+    }
 
 字体粗细（font-weight）字体变体（font-variant）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -214,6 +232,64 @@ line-height 与 font-size 的计算值之差（在 CSS 中成为“行间距”�
     
     运行结果
 
+注： 可以通过设置line-height来控制文本框的行框，从而用来微调文字相对于其父亲块元素的上或下边距的位置。
+
+举个例子： 
+
+未设置line-height前：
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>test</title>
+        </head>
+        <body>
+            <div style="height: 60px; width: 60px; border: thin solid red;">
+                <p>测试</p>
+            </div>
+        </body>
+    </html>
+
+运行结果如图六所示：
+
+.. figure:: media/字体/5.36.png
+    :align: center
+    :alt: error
+        
+    运行结果
+
+设置line-height后： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>test</title>
+        </head>
+        <body>
+            <div style="height: 60px; width: 60px; border: thin solid red;">
+                <p style="line-height: 5px;">测试</p>
+            </div>
+        </body>
+    </html>
+
+运行结果如图七所示：
+
+.. figure:: media/字体/5.37.png
+    :align: center
+    :alt: error
+            
+    运行结果
+
 字体的简写属性
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -233,7 +309,15 @@ font-family
 
 注意： font-size 和 font-family 的值是必需的。如果缺少其他值之一，则会使用其默认值。
 
-示例： p {font: 20px Arial, sans-serif;}
+示例： 
+
+.. code-block:: css
+    :linenos:
+
+
+    p {
+    font: 20px Arial, sans-serif;
+    }
 
 
 
