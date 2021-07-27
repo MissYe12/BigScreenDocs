@@ -41,13 +41,17 @@ class 选择器用于描述一组元素的样式，一般有class 选择器和id
     <head>
     <meta charset="utf-8">
     <style>
-        p {color: purple;}
+        p {
+            color: purple;
+        }
     </style>
     </head>
     <body>
     <p>哈哈</p>
     </body>
     </html>
+
+运行结果为： “哈哈”是紫色的。
 
 id选择器
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,13 +71,17 @@ HTML元素以id属性来设置id选择器,CSS 中 id 选择器以 "#" 来定义�
     <head>
     <meta charset="utf-8">
     <style>
-        #demo {color: red;}
+        #demo {
+            color: red;
+        }
     </style>
     </head>
     <body>
         <p id='demo'>哈哈</p>
     </body>
     </html>
+
+运行结果为： “哈哈”是红色的。
 
 注意：ID属性不要以数字开头，数字开头的ID在 Mozilla/Firefox 浏览器中不起作用。
 
@@ -95,7 +103,9 @@ class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一�
     <head>
     <meta charset="utf-8">
     <style>
-      .demo {color: red;}
+      .demo {
+            color: red;
+      }
     </style>
     </head>
     <body>
@@ -105,5 +115,7 @@ class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一�
     </div>
     </body>
     </html>
+
+运行结果为： “哈哈”和“嘿嘿”是红色的。
 
 注意： 类名的第一个字符不能使用数字！它无法在 Mozilla 或 Firefox 中起作用。

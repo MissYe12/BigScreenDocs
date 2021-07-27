@@ -94,15 +94,15 @@ a：active -- 链接被点击的那一刻
 
 伪元素指原本不存在的元素。
 
-::first-letter 表示元素中内容的第一个字母
+:first-letter 表示元素中内容的第一个字母,只能用于块级元素
 
-::first-line 表示元素中第一行的内容
+:first-line 表示元素中第一行的内容
 
-::selection 表示元素中选中的文本
+:selection 表示元素中选中的文本
 
-::before 表示元素中内容开始位置之前，可以结合content属性添加内容
+:before 表示元素中内容开始位置之前，可以结合content属性添加内容
 
-::after 表示元素中内容结束位置之后，可以结合content属性添加内容
+:after 表示元素中内容结束位置之后，可以结合content属性添加内容
 
 举个例子
 
@@ -116,7 +116,7 @@ a：active -- 链接被点击的那一刻
     <style>
     p:first-letter
     {
-        color:salmon;
+        color: salmon;
     }
     </style>
     </head>
@@ -132,3 +132,141 @@ a：active -- 链接被点击的那一刻
     :alt: error
     
     运行结果
+
+几组常用的伪元素介绍
+++++++++++++++++++++++++
+
+**:first-line伪元素**
+
+用于向文本的首行设置特殊样式。
+
+可应用于 "first-line" 伪元素的属性有：
+
+- font properties
+- color properties
+- background properties
+- word-spacing
+- letter-spacing
+- text-decoration
+- vertical-align
+- text-transform
+- line-height
+- clear
+  
+举个例子： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8"> 
+    <style>
+    p:first-line {
+        color:#ff0000;
+    }
+    </style>
+    </head>
+    <body>
+    <p>设置特殊样式。</p>
+    </body>
+    </html>
+
+运行结果如图三所示：
+
+.. figure:: media/伪类/4.63.png
+    :align: center
+    :alt: error
+    
+    运行结果
+
+**:first-letter 伪元素**
+
+用于向文本的首字母设置特殊样式。（只能用于块级元素）
+
+可应用于 "first-letter" 伪元素的属性有：
+
+- font properties
+- color properties
+- background properties
+- margin properties
+- padding properties
+- border properties
+- text-decoration
+- vertical-align
+- text-transform
+- line-height
+- float
+- clear
+
+**:before 伪元素**
+
+":before" 伪元素可以在元素的内容前面插入新内容
+
+举个例子： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8"> 
+    <style>
+        h1:before {
+            content: url(hh.gif);
+        }
+    </style>
+    </head>
+    <body>
+        <h1>heading</h1>
+    </body>
+    </html>
+
+运行结果如图四所示：
+
+.. figure:: media/伪类/4.64.png
+    :align: center
+    :alt: error
+    
+    运行结果
+
+**:after 伪元素**
+
+":after" 伪元素可以在元素的内容之后插入新内容
+
+举个例子： 
+
+.. code-block:: html
+    :linenos:
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8"> 
+    <style>
+        h1:after {
+            content: url(hh.gif);
+        }
+    </style>
+    </head>
+    <body>
+        <h1>heading</h1>
+    </body>
+    </html>
+
+运行结果如图五所示：
+
+.. figure:: media/伪类/4.65.png
+    :align: center
+    :alt: error
+    
+    运行结果
+
+
+
+
