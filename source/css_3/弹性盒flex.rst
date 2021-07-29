@@ -219,12 +219,12 @@ align-content 属性用于对齐弹性线.
             align-items: center;
             height: 200px;
             background-color: DodgerBlue;
-        }
-        .test>div {
+      }
+      .test>div {
             background-color: white;
             width: 100px;
             height: 100px;
-        }
+      }
     </style>
     </head>
     <body>
@@ -243,20 +243,36 @@ align-content 属性用于对齐弹性线.
     运行结果 
 
 
-其他局中方法： 
+其他居中方法示例如下： 
 
-.. code-block:: css
-  :linenos:
+选择器 {
 
-  .demo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+
+}
+    
+大致效果如图三所示： 
+
+.. figure:: media/弹性盒flex/6.53.png
+    :align: center
+    :alt: error
+    
+    大致效果 
 
 注释： 当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置。
 translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。
+
+注意： transform:translate (-50%,-50%) 有可能会造成的文字模糊。
+
+原因： 宽度或者高度并不是偶数，移动50%之后，像素点并不是整数，出了小数，和显示像素没有对上。
+
+解决方案： 将元素的高度和宽度设置为偶数。
 
 弹性项目属性
 +++++++++++++++
@@ -295,9 +311,9 @@ flex-grow 属性规定某个 flex 项目相对于其余 flex 项目将增长多�
     <div style="flex-grow: 1">2</div>
     <div style="flex-grow: 6">3</div> 
 
-运行结果如图三所示：
+运行结果如图四所示：
 
-.. figure:: media/弹性盒flex/6.53.png
+.. figure:: media/弹性盒flex/6.54.png
     :align: center
     :alt: error
     

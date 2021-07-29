@@ -136,10 +136,10 @@ HTML标签是HTML语言中最基本的单位。更多详尽的标签详见https:
     <html>
     <body>
     <p>hr <b>标签定义水平线：</b></p>
-    <hr />
-    <p><i>这是段落。<i></p>
-    <hr />
+    <hr>
     <p>这是<br>段落。</p>
+    <hr>
+    <p><i>这是段落。</i></p>
     </body>
     </html>
 

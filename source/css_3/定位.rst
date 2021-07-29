@@ -48,7 +48,7 @@ relative 定位
 
 relative的作用： 
 
-- 限制left/top/right/bottom定位
+- 限制left/top/right/bottom定位：其子元素的left，top等都是基于父元素。
 - 限制层级
 - 当某个由absolute定位的元素溢出时，若overflow属性值为hidden，则会将溢出的部分也隐藏。
 - 提高层叠上下文。比如： 如果有两张图片层叠在一起，想让下面的图片放到上面来，就可以设置下面的图片的position为relative。

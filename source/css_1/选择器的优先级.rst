@@ -19,17 +19,17 @@ css选择器优先级的算法
 css选择器优先级最高到最低顺序
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1.id选择器（#myid）
+1、id选择器（#myid）
 
-2.类选择器（.myclassname）
+2、类选择器（.myclassname）
 
-3.标签选择器（div,h1,p）
+3、标签选择器（div,h1,p）
 
-4.子选择器（ul>li）
+4、父子选择器（ul>li）
 
-5.后代选择器（li a）
+5、后代选择器（li a）
 
-6.伪类选择（a:hover,li:nth-child等）
+6、伪类选择（a:hover,li:nth-child等）
 
 补充： !important用法
 

@@ -10,4 +10,6 @@ CSS重要样式
     动画.rst
     图片.rst
     超链接.rst
+    本章任务.rst
+    本章习题.rst
     

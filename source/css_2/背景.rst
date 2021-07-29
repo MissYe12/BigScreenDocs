@@ -27,7 +27,7 @@ background-color用来定义背景的颜色。
     </style>
     </head>
     <body>
-        <p>哈哈</p>
+    <p>哈哈</p>
     </body>
     </html>
 

@@ -285,7 +285,7 @@ border-radius:用来设置圆角，圆角设置的圆的半径大小。可以设
                 
 行内元素可以设置padding，但是垂直方向padding不会影响页面的布局
 
-行内元素可以设置border，垂直方向的border不回影响页面的布局
+行内元素可以设置border，垂直方向的border不会影响页面的布局
 
 行内元素可以设置margin，垂直方向的margin不会影响布局
 

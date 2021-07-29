@@ -56,16 +56,18 @@ id
 
     <head>
     <style>
-    .cities {
-        background-color: purple;
-    } 
-    span.red {color: red;}
+        .cities {
+            background-color: purple;
+        } 
+        span.red {
+            color: red;
+        }
     </style>
     </head>
     <body>
     <div class="cities">
-    <h2>A</h2>
-    <p>1+1=2</p>
+        <h2>A</h2>
+        <p>1+1=2</p>
     </div>
     <span class="red">B</span> 
     </body>

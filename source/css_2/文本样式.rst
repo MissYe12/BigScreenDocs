@@ -32,7 +32,7 @@ text-decoration 属性用来设置或删除文本的装饰。
 
 
     a {
-    text-decoration: none;
+        text-decoration: none;
     }
 
 举个例子：
@@ -48,7 +48,7 @@ text-decoration 属性用来设置或删除文本的装饰。
     </style>
     </head>
     <body>
-        <h1>This</h1>
+    <h1>This</h1>
     </body>
 
 运行结果如图二所示：
@@ -81,12 +81,12 @@ text-decoration 属性用来设置或删除文本的装饰。
     <head>
     <style>
         p {
-        text-transform: uppercase;
+            text-transform: uppercase;
         }
     </style>
     </head>
     <body>
-        <p>This</p>
+    <p>This</p>
     </body>
 
 运行结果为THIS。
@@ -172,15 +172,15 @@ text-overflow 属性规定当文本溢出包含元素时发生的事情。
     <head>
     <style> 
         div {
-            white-space:nowrap; 
-            width:12em; 
-            overflow:hidden; 
-            border:1px solid #000000;
+            white-space: nowrap; 
+            width: 12em; 
+            overflow: hidden; 
+            border: 1px solid #000000;
         }
     </style>
     </head>
     <body>
-    <div style="text-overflow:ellipsis;">This is a long time for me</div>
+    <div style="text-overflow: ellipsis;">This is a long time for me</div>
     </body>
     </html>
 
