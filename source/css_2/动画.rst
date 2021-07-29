@@ -100,6 +100,18 @@ CSS3所有动画属性如图表一所示：
 
 运行结果为一个方块由红变蓝。
 
+注： 其中，-webkit指在chrome,safari中的私有属性。
+
+-moz代表firefox浏览器私有属性；
+
+-ms代表IE浏览器私有属性；
+
+-webkit代表chrome、safari私有属性；
+
+-o代表Opera私有属性。
+
+可用于为不同浏览器设计不同的样式。
+
 拓展：另一种动画制作方法。
 
 html的canvas + JS控制
