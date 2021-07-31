@@ -1,4 +1,4 @@
-Javascript中的对象
+JavaScript中的对象
 =================================
 .. toctree::
     :maxdepth: 1
@@ -11,6 +11,8 @@ Javascript中的对象
     原型链与闭包
     DOM
     BOM
+    本章任务
+    本章习题
 
 
 

@@ -5,16 +5,284 @@
 
 什么是数组
 -----------------------------------
+数组也是对象，与普通对象功能类似，用来存储一些值，不同的是数组使用数字作为索引操作元素。(从0开始的整数就是索引)
+
+1. 对于连续的数组，可以使用length属性获取数组长度；对于非连续的数组，使用length会获得数组最大的索引+1。
+2. 最好创建连续数组，所以要向数组最后一个位置添加元素。 
+3. 数组内可以存储任意数据类型
+
+示例：
+
+.. code-block:: html
+  :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+
+            //两种创建数组的方式
+            var arrCar = new Array(2, '奔驰');
+            var message = {
+                name : '张三',
+                age : 19
+            };
+            var arrClass = ['高中', 46, [48,56,47], message, null, undefined];
+            arrCar.length = 500000;
+            console.log(arrCar);
+            console.log(arrClass); 
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+  
+显示结果如下：
+
+.. figure:: media/9.2.1.png
+    :align: center
+    :alt: error
 
 
 数组的遍历
 -----------------------------------
+遍历数组就是将数组的所有元素都取出来
 
+1. 使用for循环
+
+.. code-block:: html
+  :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrClass = ['高中', 46, [48,56,47], null, undefined, '三个班'];
+            for (i = 0; i < arrClass.length; i++) {
+                console.log(arrClass[i]);
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+
+显示结果如下：
+
+.. figure:: media/9.2.2(1).png
+    :align: center
+    :alt: error
+
+2. 使用forEach
+
+.. code-block:: html
+  :linenos:
+
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrClass = ['高中', 46, [48,56,47], null, undefined, '三个班'];
+
+            /*  
+                通过设置形参读取浏览器在匿名函数中传递了三个参数：正在遍历的元素，正在遍历的元素对应的索引，正在遍历的数组
+            */
+            arrClass.forEach(function (value, index, object) {
+                console.log(value);
+                console.log(index);
+                console.log(object);
+            });     
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+  
+
+显示结果如下：
+
+.. figure:: media/9.2.2(2).png
+    :align: center
+    :alt: error
 
 数组的方法
 -----------------------------------
+1. pop() —— 删除数组的最后一个元素，并将被删除的元素作为返回值返回
+2. push() —— 向数组末尾添加一个或多个元素，并返回数组新的长度
+3. shift() —— 删除数组的第一个元素，并将被删除的元素作为返回值返回
+4. unshift() —— 向数组开头添加一个或多个元素并返回新的数组长度，其他元素索引依次调整
+
+示例1：
+
+.. code-block:: html
+  :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrClass = ['高中', 46, [48,56,47], null, undefined, '三个班'];
+            var result = [arrClass.pop(), arrClass.push('可乐', 123), arrClass.shift(), arrClass.unshift('雪碧', '乒乓球')];
+            console.log(result);
+            console.log(arrClass);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
 
 
+显示结果如下：
+
+.. figure:: media/9.2.3(1).png
+    :align: center
+    :alt: error
+
+5. join() —— 把数组的所有元素放入一个字符串，元素通过指定的分隔符进行分割
+6. concat() —— 连接两个或更多的数组，并返回结果
+    
+示例2：
+
+.. code-block:: html
+    :linenos:
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrName = ['张三', '李四' , '王五'];
+            var arrTime = [06, 27, 56];
+            var arrAge = [3, 5, 44];
+
+            //用 - 作为分隔符
+            var result1 = arrTime.join('-');
+            var result2 = arrName.concat(arrAge,arrTime);
+            console.log(arrTime);
+            console.log(result1);
+            console.log(arrName);
+            console.log(result2);
+        </script>
+    </head>
+    <body>
+            
+    </body>
+    </html>
+
+    
+显示结果如下：
+    
+.. figure:: media/9.2.3(2).png
+    :align: center
+    :alt: error
+
+7. splice() —— 删除元素，并向数组添加新元素
+8. slice() —— 从某个已有的数组返回选定的元素
+    
+示例3：
+
+.. code-block:: html
+  :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrName = ['张三', '李四' , '王五', '甲', '乙', '丙', '丁'];
+
+            /*
+                参数分别是 ： 截取开始位置的索引(包含)，截取结束位置的索引(不包含) 
+                索引传递负值 -1：倒数第一个， -2： 倒数第二个
+            */
+            var result1 = arrName.slice(0,3);
+            var result2 = arrName.slice(0,-2);
+
+            //参数分别是 ：开始位置的索引， 删除的数量，插入的新元素  
+            var result3 = arrName.splice(1,1,'haha');
+            console.log(arrName);
+            console.log(result1);
+            console.log(arrName);
+            console.log(result2);
+            console.log(result3);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
 
 
+显示结果如下：
 
+.. figure:: media/9.2.3(3).png
+    :align: center
+    :alt: error
+
+9. reverse() —— 反转数组
+10. sort() —— 对数组中元素进行排序
+
+示例4：
+
+.. code-block:: html
+  :linenos:
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var arrName = ['张三', '李四' , '王五', '甲', '乙', '丙', '丁'];
+            var arrnumber = [12,23,45,215,144,89];
+
+            //直接修改原数组
+            arrName.reverse();
+            console.log(arrName);
+
+            //按照Unicode编码排序
+            arrName.sort();
+            console.log(arrName);
+
+            //对数字排序易出错
+            arrnumber.sort();
+            console.log(arrnumber);
+
+            /*
+                建议用回调函数来排序，函数会遍历数组且：
+                    返回值大于0则交换位置
+                故能正确排序。
+            */
+                arrnumber.sort(function(a, b){
+                return a-b;
+            });
+            console.log(arrnumber);
+        </script>
+    </head>
+    <body>
+            
+    </body>
+    </html>
+    
+    
+显示结果如下：
+    
+.. figure:: media/9.2.3(4).png
+    :align: center
+    :alt: error

@@ -1,24 +1,223 @@
 
 条件与循环语句
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if语句(条件判断语句)
+-----------------------------------
+    
+.. code-block:: sh
+   :linenos:
 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var grade;
+            /*
+                prompt()函数返回值是string
+                +prompt()函数返回值是number
+            */
+            grade = + prompt('请输入成绩：');
+            if (grade > 100 || grade < 0 || isNaN(grade)) {
+                alert('错误');
+            }else {
+                if (grade >= 90) {
+                    alert('厉害');
+                }else if (grade >= 80) {
+                    alert('优秀');
+                }else if (grade >=70 ) {
+                    alert('良好');
+                }else {
+                    alert('加油');
+                }
+            }    
+        </script> 
+    </head> 
+    <body>
 
-if语句
+    </body>
+    </html>
+
+switch语句(条件分支语句)
 -----------------------------------
 
+.. code-block:: sh
+   :linenos:
 
-switch语句
------------------------------------
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var num;
+            //弹出输入框
+            num = + prompt('请输入数字(1~5)：');
+            switch (num) {
+                case 1:
+                    alert('一');
+                    break;
+                case 2:
+                    alert('二');
+                    break;
+                case 3:
+                    alert('三');
+                    break;
+                case 4:
+                    alert('四');
+                    break;
+                case 5:
+                    alert('五');
+                    break;
+                default:
+                    alert('错误');
+                    break;
+            }   
+        </script> 
+    </head> 
+    <body>
 
+    </body>
+    </html>
 
 while语句与do...while语句
 -----------------------------------
+两个语句功能相似，while语句先判断后执行，do...while语句先执行后判断。
+
+while语句:
+
+.. code-block:: sh
+   :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var grade;
+            while (true) {
+                grade = + prompt('请输入成绩：');
+                if(grade >= 0 && grade <= 100) {
+                    alert('成绩有效');
+                    break;
+                }else {
+                    alert('成绩无效');
+                }
+            }
+        </script> 
+    </head> 
+    <body>
+
+    </body>
+    </html>
+
+do...while语句：
+
+.. code-block:: sh
+    :linenos:
+ 
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <title>Document</title>
+         <script>
+             var grade;
+             do {
+                 grade = + prompt('请输入成绩：');
+                 if(grade >= 0 && grade <= 100) {
+                     alert('成绩有效');
+                     break;
+                 }else {
+                     alert('成绩无效');
+                 }
+             }while(true);
+         </script> 
+     </head> 
+     <body>
+ 
+     </body>
+     </html>
 
 
 for循环与for...in循坏
 -----------------------------------
+for语句遍历代码块：
 
+1. 执行初始化表达式
+2. 执行条件表达式判断是否执行循环
+3. 执行更新表达式，再重复到步骤2
+
+.. code-block:: sh
+    :linenos:
+
+    for(初始化表达式;条件表达式;更新表达式) {
+        语句;
+    }
+ 
+示例：
+
+.. code-block:: sh
+    :linenos:
+ 
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <title>Document</title>
+         <script>
+            var count = 1;
+            for (; count <= 5; count++) {
+                alert(count);
+             }
+         </script> 
+     </head> 
+     <body>
+ 
+     </body>
+     </html>
+
+for...in语句遍历对象属性 : 当对象中的属性不明确时可以使用。
+
+.. code-block:: sh
+   :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var person = {
+                name : '张三',
+                gender : '男',
+                age : 28,
+                job : 'lawyer'
+            };
+            var n;
+
+            //每次执行都会将一个属性名赋值给变量n
+            for (n in person) {
+                console.log(n);
+                //区分下面两行
+                console.log(person[n]);
+                console.log(person.n);
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+    </html>
+
+显示结果如下：
+
+.. figure:: media/7.4.4.png
+    :align: center
+    :alt: error
 
 break与continue
 -----------------------------------
-
+break关键字可以跳出循环，continue关键字可以结束本次循环。

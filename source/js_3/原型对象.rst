@@ -1,9 +1,186 @@
 
 原型对象
 ~~~~~~~~~~~~~~~~~~~~~~
-很重要
+在说原型对象前需要引入一个概念：构造函数。
+
+构造函数
+^^^^^^^^^^^^^^^^^^^^^^^
+当我们需要创建对象录入信息时，可以编写如下代码：
+
+.. code-block:: html
+   :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            var person1, person2, person3;
+            var pig1, pig2, pig3;
+            function createPerson(name, address, age) {
+                var person = new Object();
+                person.name = name;
+                person.address = address;
+                person.age = age;
+                return person;
+            }
+    
+            function createPig(name, age) {
+                var pig = new Object();
+                pig.name = name;
+                pig.age = age;
+                return pig;
+            }
+
+            person1 = createPerson('张三', '上海', 23);
+            person2 = createPerson('李四', '北京', 11);
+            person3 = createPerson('王五', '广州', 34);
+            pig1 = createPig('三', 3);
+            pig2 = createPig('四', 4);
+            pig3 = createPig('五', 5);
+            
+            console.log(person1);
+            console.log(person2);
+            console.log(person3);
+            console.log(pig1);
+            console.log(pig2);
+            console.log(pig3);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+   
+显示结果如下：
+
+.. figure:: media/9.4.1(1).png
+    :align: center
+    :alt: error
+
+由结果可知：用这种方法创建的对象都使用了构造函数Object，我们无法区分多种不同种类的对象。这时就需要引入构造函数了。
+
+.. code-block:: html
+   :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            function Createperson(name, address, age) {
+                this.name = name;
+                this.address = address;
+                this.age = age;
+                this.introduce = alert('我是' + this.name + ',来自' + this.address + ',今年' + this.age + '岁'); 
+                this.action = function sayHello() {
+                    alert('很高兴认识大家！！！'); 
+                }
+            }
+
+            //普通函数直接调用，构造函数要使用new关键字来调用。
+            var person1 = new Createperson('张三','上海',33);
+            console.log(person1);
+        </script>
+    </head>
+    <body>
+       
+    </body>
+    </html>
+
+   
+显示结果如下：
+
+.. figure:: media/9.4.1(2).png
+    :align: center
+    :alt: error
+
+.. figure:: media/9.4.1(3).png
+    :align: center
+    :alt: error
 
 
+构造函数的执行流程：
+
+1. 立即创建一个新的对象
+2. 将新建对象设置为函数中this，在构造函数中可以使用this来引用新建函数
+3. 逐行执行函数中代码
+4. 将新建对象作为返回值返回
+   
+使用同一个构造函数创建的对象我们成为一类对象，一个构造函数也就是一个类。我们将通过一个构造函数创建的对象称为是该类的实例。
+
+原型对象的运用
+^^^^^^^^^^^^^^^^^^^^^^^
+
+对我们所创建的每一个函数，解析器都会向里面添加一个属性prototype，这个属性对应一个对象，即为原型对象。
+
+- 普通函数调用prototype时没有作用
+- 构造函数调用prototype时，它所创建的对象中都会有一个隐含的属性指向该构造函数的原型对象。这个原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象，故对象共有的内容可以统一设置到原型对象。
+
+当我们使用一个对象的属性或方法时，会先在自身中寻找，如果没有再去指向的原型对象中寻找，如果没有，再去原型对象的原型对象中寻找，直至Object的原型对象，若仍没有则返回undefined。
+
+.. code-block:: html
+   :linenos:
+
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            function Person () {
+
+            }
+            
+            Person.prototype.name = '我在构建函数的原型对象中';
+            Person.prototype.age = 23;
+            var person1 = new Person();
+            var person2 = new Person();
+            person1.name = '张三';
+            
+            //先在该对象中寻找属性，没有则在指向的原型对象中寻找，直至Object的原型对象。
+            console.log(person1.name);
+            console.log(person1.age);
+            console.log(person1.address);
+
+            //指向的构造函数的原型对象
+            console.log(person1.__proto__);
+            console.log(person1.__proto__ == Person.prototype);
+            console.log(person1.__proto__ == Person.__proto__);
+            console.log(person1.__proto__ == person2.__proto__);
+
+            //指向的构造函数的原型对象的原型对象
+            console.log(person1.__proto__.__proto__);
+
+            //指向的构造函数的原型对象的原型对象的原型对象，空对象
+            console.log(person1.__proto__.__proto__.__proto__);
+
+            //使用in检查对象中是否含有某个属性，如果对象中没有但是隐含属性指向的原型对象中有，也会返回true
+            console.log("name" in person1);
+
+            //使用对象的hasOwnProperty()方法来检查对象自身中是否含有该属性，这里返回false
+            console.log(person1.hasOwnProperty("name"));
+            console.log(person1.hasOwnProperty("age"));
+
+            //但是实际上对象自身没有hasOwnProperty()方法
+            console.log(person1.hasOwnProperty("hasOwnProperty"));
+
+            //并且实际上对象的隐含属性指向的原型对象也没有hasOwnProperty()方法
+            console.log(person1.__proto__.hasOwnProperty("hasOwnProperty"));
+            console.log(person1.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+        </script>
+    </head> 
+    <body>
+        
+    </body>
+    </html>
 
 
+显示结果如下：
 
+.. figure:: media/9.4.2.png
+    :align: center
+    :alt: error
