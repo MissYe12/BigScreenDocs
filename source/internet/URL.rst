@@ -71,7 +71,7 @@ https://developer.mozilla.org/en-US/docs/Learn
 
 这是HTML文档中绝对URL最常见的用例。浏览器将使用与用于加载托管该URL的文档相同的协议和相同的域名。注意：不可能省略该域名而不省略协议。
 
-1. 相对 URL（Relative URL）不包含资源位置的全部信息，必须结合当前网页的位置，才能定位资源。。相对URL示例：
+2. 相对 URL（Relative URL）不包含资源位置的全部信息，必须结合当前网页的位置，才能定位资源。。相对URL示例：
 
 为了更好地了解以下示例，我们假设从位于以下URL的文档中调用URL： https://developer.mozilla.org/en-US/docs/Learn
 

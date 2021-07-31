@@ -1,0 +1,6 @@
+
+本章任务
+======================
+
+下载并安装 VScode、Mysql、Navicat for Mysql、Node.js，在VScode中新建一个 HelloWorld.html文件，在页面上显示helloworld，然后尝试通过JavaScript方法分别在控制台和页面上输出helloworld，观察页面结果。
+   
