@@ -1,3 +1,50 @@
 
 事件的冒泡
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+事件的冒泡指的是事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。
+
+示例：
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #div1{
+                width: 300px;
+                height: 300px;
+                background-color: hsla(340, 80%,90% ,0.8);
+            }
+            #p1{
+                background-color:#bfa;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            我是div
+            <p id="p1">我是p</p>
+        </div>
+        <script>
+            var div1 = document.getElementById('div1');
+            div1.onclick = function(event) {
+                alert('我是div的单击响应函数');
+
+            }
+
+            var p1 = document.getElementById('p1');
+            p1.onclick = function(event) {
+                alert('我是p的单击响应函数');
+
+            }
+
+            document.body.onclick = function() {
+                alert('我是body的单击响应函数');
+            }
+        </script>
+    </body>
+    </html>

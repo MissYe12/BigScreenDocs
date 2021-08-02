@@ -1,3 +1,47 @@
 
 常用的事件
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+================ ================================
+属性                此事件发生在何时...
+onchange            HTML 元素已被改变
+onclick             用户点击了 HTML 元素
+onmouseover         用户把鼠标移动到 HTML 元素上
+onmouseout          用户把鼠标移开 HTML 元素
+onkeydown           用户按下键盘按键
+onload              浏览器已经完成页面加载
+================ ================================
+
+示例1：当离开输入字段时，会触发一个函数，将输入文本转换为大写
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            function myFunction() {
+            var name = document.getElementById("Englishname");
+            name.value = name.value.toUpperCase();
+            }
+            </script>
+    </head>
+    <body>
+        <p>当离开输入字段时，会触发一个函数，将输入文本转换为大写。</p>
+        请输入您的英文姓名：<input type="text" id="Englishname" onblur="myFunction()">
+    </body>
+    </html>
+
+
+================ ================================
+鼠标/键盘属性               描述
+
+================ ================================
+    
+================ ================================
+IE属性               描述
+
+================ ================================
