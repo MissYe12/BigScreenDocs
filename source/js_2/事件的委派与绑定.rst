@@ -1,4 +1,179 @@
 
 事件的委派与绑定
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+事件的委派
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 事件的委派是将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时会一直冒泡到祖先元素从而通过祖先元素的响应函数来处理事件
+
+示例：
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            window.onload = function() {
+                var button1 = document.getElementById('button1');
+                button1.onclick = function() {
+                    var list = document.createElement('li');
+                    var unordered = document.getElementById('unordered');
+                    list.innerHTML = '<a href="javascript:;">新建超链接</a>';
+                    unordered.appendChild(list);
+                }
+    
+                var allA = document.getElementsByTagName('a');
+                for(var i = 0; i < allA.length; i++) {
+                    allA[i].onclick = function() {
+                        alert('我是链接');
+                    };
+                }
+    
+            }
+        </script>
+    </head>
+    <body>
+        <button id="button1">新建超链接</button>
+        <ul id="unordered">
+            <li><a href="javascript:;">超链接1</a></li>
+            <li><a href="javascript:;">超链接2</a></li>
+            <li><a href="javascript:;">超链接3</a></li>
+        </ul>
+
+    </body>
+    </html>
+
+运行上面的示例会发现新建的超链接不具有原有链接已绑定的事件。这时运用委派：
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            window.onload = function() {
+                var button1 = document.getElementById('button1');
+                button1.onclick = function() {
+                    var list = document.createElement('li');
+                    var unordered = document.getElementById('unordered');
+                    list.innerHTML = '<a href="javascript:;" class="link">新建的超链接</a>';
+                    unordered.appendChild(list);
+                }
+
+                //事件委派利用了冒泡可以减少事件绑定的次数
+                var unordered = document.getElementById('unordered');
+                unordered.onclick = function(event) {
+                    event = event || window.event; 
+                    if (event.target.className == 'link') {
+                            alert('我是链接');
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id="button1">新建超链接</button>
+        <ul id="unordered">
+            <li><a href="javascript:;" class="link">超链接1</a></li>
+            <li><a href="javascript:;" class="link">超链接2</a></li>
+            <li><a href="javascript:;" class="link">超链接3</a></li>
+        </ul>
+    </body>
+    </html>
+
+
+事件的绑定 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. addEventListener()方法：同时为一个元素的相同事件绑定多个响应函数并且按照函数的绑定顺序执行。
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="myBut">我是按钮</button>
+        <script>
+            var myBut = document.getElementById('myBut');
+            myBut.addEventListener('click', function() {
+                alert('Hello!!!');
+            }, false);
+
+            myBut.addEventListener('click', function() {
+                alert('Hello!!');
+            }, false);
+
+            myBut.addEventListener('click', function() {
+                alert('Hello!');
+            }, false);
+
+            myBut.addEventListener('click', function() {
+                alert('Hello');
+            }, false);
+        </script>
+
+    </body>
+    </html>
+
+
+    
+.. code-block:: html
+    :linenos:
+
+    element.addEventListener(event, function, useCapture);
+  
+- event：事件类型，不带前缀'on'
+- function: 回调函数
+- useCapture： 布尔值，一般为false
+
+可以使用removeEventListener()方法删除addEventListener()
+
+2. 对于 IE8 、 Opera6.0 及其更早版本不支持 addEventListener() 和 removeEventListener() 方法，可以使用 attachEvent() 方法向元素添加事件处理程序，并由 detachEvent() 方法删除
+
+.. code-block:: html
+    :linenos:
+
+    element.attachEvent(event, function);
+
+- event： 事件类型，带前缀 'on'
+- function: 回调函数
+
+3. 综合两者： 跨浏览器解决方案如下：
+
+.. code-block:: html
+    :linenos:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="myBtn">我是按钮</button>
+        <script>
+            var myBtn = document.getElementById('myBtn');
+            if(myBtn.addEventListener) {
+                myBtn.addEventListener('click', myFunction);
+            }else if (myBtn.attachEvent) {
+                myBtn.attachEvent('onclick', myFunction);
+            }
+
+            function myFunction() {
+                alert('Hello');
+            }
+        </script>
+    </body>
+    </html>

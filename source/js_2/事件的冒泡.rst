@@ -31,13 +31,13 @@
         </div>
         <script>
             var div1 = document.getElementById('div1');
-            div1.onclick = function(event) {
+            div1.onclick = function() {
                 alert('我是div的单击响应函数');
 
             }
 
             var p1 = document.getElementById('p1');
-            p1.onclick = function(event) {
+            p1.onclick = function() {
                 alert('我是p的单击响应函数');
 
             }
@@ -48,3 +48,29 @@
         </script>
     </body>
     </html>
+
+取消冒泡：
+
+.. code-block:: html
+    :linenos:
+
+    <script>
+        var div1 = document.getElementById('div1');
+        div1.onclick = function(event) {
+            event = event || window.event;
+            alert('我是div的单击响应函数');
+            event.cancelBubble = true;
+        }
+
+        var p1 = document.getElementById('p1');
+        p1.onclick = function(event) {
+            event = event || window.event;
+            alert('我是p的单击响应函数');
+            event.cancelBubble = true;
+
+        }
+
+        document.body.onclick = function() {
+            alert('我是body的单击响应函数');
+        }
+    </script>

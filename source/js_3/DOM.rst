@@ -171,18 +171,18 @@ document.URL                            返回文档的完整 URL
             //表示当前节点的所有子节点
             clickResponse('button5', function() {
                 var but5 =  document.getElementById('drinks');
-                var but5cns = but5.childNodes;
-                for(var i = 0; i < but5cns.length; i++)
-                alert(but5cns[i].innerHTML);
+                var but5Child = but5.childNodes;
+                for(var i = 0; i < but5Child.length; i++)
+                alert(but5Child[i].innerHTML);
             });
     
             //表示当前节点的最后一个子节点
             clickResponse('button6', function() {
                 var but6 =  document.getElementById('drinks');
-                var but6cns1 = but6.lastChild;
-                var but6cns2 = but6.lastElementChild;
-                alert(but6cns1.innerHTML);
-                alert(but6cns2.innerHTML);
+                var but6Child1 = but6.lastChild;
+                var but6Child2 = but6.lastElementChild;
+                alert(but6Child1.innerHTML);
+                alert(but6Child2.innerHTML);
             });
     
         </script>
@@ -206,10 +206,10 @@ element.style.property = new style          改变 HTML 元素的样式
 ======================================= ============================================
 方法                                        描述
 document.createElement(标签名)               创建元素节点
-document.createElement(文本内容)             创建文本节点
-removeChild(element)                        删除元素节点
-appendChild()                               向父节点中添加新的子节点
-replaceChild(element)                       替换元素子节点
+document.TextNode(文本内容)                  创建文本节点
+removeChild(refChild)                       删除元素节点
+appendChild(newChild)                       向父节点中添加新的子节点
+replaceChild(newChild,refChild)             替换元素子节点
 insertBefore(newChild,refChild)             在指定的子节点前面插入新的子节点
 ======================================= ============================================
 
@@ -249,31 +249,31 @@ insertBefore(newChild,refChild)             在指定的子节点前面插入新
 
             //创建一个节点到'drinks'下
             clickResponse('button1', function() {
-                var li = document.createElement('li');
+                var juice = document.createElement('li');
                 var drinks = document.getElementById('drinks');
-                li.innerHTML = '果汁';
+                juice.innerHTML = '果汁';
 
                 //向父节点中添加新的子节点
-                drinks.appendChild(li);
+                drinks.appendChild(juice);
             });
 
             //创建一个节点到'可乐'前
             clickResponse('button2', function() {
-                var li = document.createElement('li');
+                var milky_tea = document.createElement('li');
                 var drinks = document.getElementById('drinks');
                 var cola = document.getElementById('cola');
-                li.innerHTML = '奶茶';
-                drinks.insertBefore(li,cola);
+                milky_tea.innerHTML = '奶茶';
+                drinks.insertBefore(milky_tea,cola);
             });
 
             //用一个节点替换'咖啡'并删除'牛奶'
             clickResponse('button3', function() {
-                var li = document.createElement('li');
+                var soda = document.createElement('li');
                 var drinks = document.getElementById('drinks');
                 var coffee = document.getElementById('coffee');
                 var milk = document.getElementById('milk');
-                li.innerHTML = '苏打水';
-                drinks.replaceChild(li,coffee);
+                soda.innerHTML = '苏打水';
+                drinks.replaceChild(soda,coffee);
 
                 //与drinks.removeChild(milk);等效
                 milk.parentNode.removeChild(milk);
