@@ -55,16 +55,48 @@ type                    返回当前 Event 对象表示的事件的名称。
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
-        <script>
-            function myFunction() {
-            var name = document.getElementById("Englishname");
-            name.value = name.value.toUpperCase();
+        <style>
+            #myDiv1{
+                width: 100px;
+                height: 100px;
+                background-color: #bfa;
+                position: absolute;
             }
-            </script>
+        </style>
     </head>
     <body>
-        <p>当离开输入字段时，会触发一个函数，将输入文本转换为大写。</p>
-        请输入您的英文姓名：<input type="text" id="Englishname" onblur="myFunction()">
+        <div id="myDiv1"></div>
+        <div id="myDiv2"></div>
+        <script>
+            var myDiv1 = document.getElementById('myDiv1');
+
+            //鼠标在拖拽元素上按下
+            myDiv1.onmousedown = function() {
+            
+                //拖拽元素随鼠标移动
+                document.onmousemove = function(event) {
+                    event = event || window.event;
+
+                    //获取鼠标的坐标
+                    var level = event.clientX;
+                    var vertical = event.clientY;
+
+                    //修改myDiv1的位置
+                    myDiv1.style.left = level + 'px';
+                    myDiv1.style.top = vertical + 'px'; 
+                };
+
+                //鼠标松开，元素固定在当前位置
+                myDiv1.onmouseup = function() {
+                    document.onmousemove = null;
+
+                    //取消onmouseup事件   
+                    myDiv1.onmouseup = null;
+                };
+
+            };
+
+        </script>
     </body>
     </html>
 
@@ -73,3 +105,52 @@ type                    返回当前 Event 对象表示的事件的名称。
 .. code-block:: html
     :linenos:
 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #myDiv{
+                width: 100px;
+                height: 100px;
+                background-color: #bfa;
+                position: absolute;
+            }
+    
+        </style>
+    </head>
+    <body>
+        <div id="myDiv"></div>
+        <script>
+            var myDiv = document.getElementById('myDiv');
+            document.onkeydown = function(event) {
+                event = event || window.event;
+                switch (event.keyCode) {
+                    case 37:
+
+                        //左移
+                        myDiv.style.left = myDiv.offsetLeft - 30 + 'px';
+                        break;
+                    case 39:
+
+                        //右移
+                        myDiv.style.left = myDiv.offsetLeft + 30 + 'px';
+                        break;
+                    case 38:
+
+                        //上移
+                        myDiv.style.top = myDiv.offsetTop - 30 + 'px';
+                        break;
+                    case 40:
+
+                        //下移
+                        myDiv.style.top = myDiv.offsetTop + 30 + 'px';
+                        break;
+    
+                };
+            };
+    
+        </script>
+    </body>
+    </html>
